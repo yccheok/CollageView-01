@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Attachment {
+    let name: String
+    let width: Int
+    let height: Int
+}
