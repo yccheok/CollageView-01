@@ -11,6 +11,8 @@ class CollageView: UIView {
     
     @IBOutlet var verticalStackView: UIStackView!
     
+    let spacing = CGFloat(1)
+    
     var attachments: [Attachment] = []
     var attachmentSet = Set<Attachment>()
     let countPerRow = 3;
@@ -60,6 +62,7 @@ class CollageView: UIView {
             horizontalStackView.axis = .horizontal
             horizontalStackView.distribution = .fillProportionally
             horizontalStackView.alignment = .top
+            horizontalStackView.spacing = spacing
             
             rows.append(horizontalStackView)
             verticalStackView.addArrangedSubview(horizontalStackView)
@@ -106,7 +109,7 @@ class CollageView: UIView {
         for index in startIndex...endIndex {
             let attachment = attachments[index]
             let weight = weights[index-startIndex]
-            let newWidth = (weight/totalWeight) * (Double)(self.frame.width)
+            let newWidth = (weight/totalWeight) * (Double)(self.frame.width - spacing*CGFloat(endIndex-startIndex))
             let oldWidth = attachment.width
             let oldHeight = attachment.height
             let newHeight = newWidth / oldWidth * oldHeight
@@ -116,6 +119,7 @@ class CollageView: UIView {
             imageView.image = UIImage(named: attachment.name)!
             imageView.intrinsicSize = CGSize(width: newWidth, height: newHeight)
 
+            print("\(attachment.name) -> \(imageView.intrinsicSize)")
             horizontalStackView.addArrangedSubview(imageView)
         }
     }

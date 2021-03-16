@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98j-Mn-8kh" customClass="CollageView" customModule="CollageView_01" customModuleProvider="target">
-                                <rect key="frame" x="57" y="325" width="300" height="300"/>
+                                <rect key="frame" x="57" y="400" width="300" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="3bJ-6P-On0"/>
+                                    <constraint firstAttribute="height" constant="150" id="3bJ-6P-On0"/>
                                     <constraint firstAttribute="width" constant="300" id="wAn-1B-wQQ"/>
                                 </constraints>
                             </view>
