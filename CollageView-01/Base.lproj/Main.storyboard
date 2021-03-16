@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OEF-tI-Fnz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98j-Mn-8kh" customClass="CollageView" customModule="CollageView_01" customModuleProvider="target">
-                                <rect key="frame" x="132" y="378" width="150" height="150"/>
+                                <rect key="frame" x="57" y="325" width="300" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="3bJ-6P-On0"/>
-                                    <constraint firstAttribute="width" constant="150" id="wAn-1B-wQQ"/>
+                                    <constraint firstAttribute="height" constant="300" id="3bJ-6P-On0"/>
+                                    <constraint firstAttribute="width" constant="300" id="wAn-1B-wQQ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -32,10 +32,38 @@
                             <constraint firstItem="98j-Mn-8kh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sBF-SP-M0n"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="pia-pm-hFL">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="amE-VH-dSt">
+                            <connections>
+                                <action selector="click:" destination="BYZ-38-t0r" id="Dlh-kV-HN0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collageView" destination="98j-Mn-8kh" id="21C-jR-MFE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="110"/>
+            <point key="canvasLocation" x="1050.7246376811595" y="109.82142857142857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9zE-WU-9Wj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OEF-tI-Fnz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TVi-Gs-Dvw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Kib-bb-Sh6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mAo-Ci-iXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140.57971014492756" y="109.82142857142857"/>
         </scene>
     </scenes>
     <resources>

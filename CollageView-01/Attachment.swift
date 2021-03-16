@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Attachment {
+struct Attachment : Hashable {
     let name: String
-    let width: Int
-    let height: Int
+    let width: Double
+    let height: Double
 }
