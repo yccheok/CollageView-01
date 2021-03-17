@@ -11,6 +11,8 @@ class CollageView: UIView {
     
     @IBOutlet var verticalStackView: UIStackView!
     
+    @IBOutlet var stackViewAndSafeAreaBottomConstraint: NSLayoutConstraint!
+    
     let spacing = CGFloat(1)
     
     var attachments: [Attachment] = []
@@ -35,6 +37,12 @@ class CollageView: UIView {
         let view = instanceFromNib()
         view.frame = self.bounds
         self.addSubview(view)
+        // Default is not embed in scroll view.
+        embedInScrollView(false)
+    }
+    
+    func embedInScrollView(_ embed: Bool) {
+        stackViewAndSafeAreaBottomConstraint.isActive = embed
     }
     
     func addAttachment(_ attachment: Attachment) {

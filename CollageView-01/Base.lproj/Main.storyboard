@@ -16,12 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98j-Mn-8kh" customClass="CollageView" customModule="CollageView_01" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="98j-Mn-8kh" customClass="CollageView" customModule="CollageView_01" customModuleProvider="target">
                                 <rect key="frame" x="57" y="400" width="300" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="3bJ-6P-On0"/>
                                     <constraint firstAttribute="width" constant="300" id="wAn-1B-wQQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KuY-4D-LHe" customClass="ScrollableCollageView" customModule="CollageView_01" customModuleProvider="target">
+                                <rect key="frame" x="57" y="88" width="300" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="19H-D9-RiB"/>
+                                    <constraint firstAttribute="height" constant="150" id="SVN-W8-VVP"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -29,7 +36,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="98j-Mn-8kh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="76i-xt-NZr"/>
+                            <constraint firstItem="KuY-4D-LHe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="O4i-vK-VaO"/>
                             <constraint firstItem="98j-Mn-8kh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sBF-SP-M0n"/>
+                            <constraint firstItem="KuY-4D-LHe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="yUo-SE-H05"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pia-pm-hFL">
@@ -41,6 +50,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collageView" destination="98j-Mn-8kh" id="21C-jR-MFE"/>
+                        <outlet property="scrollableCollageView" destination="KuY-4D-LHe" id="Em0-do-JWd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

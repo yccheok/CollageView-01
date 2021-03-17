@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var collageView: CollageView!
+    @IBOutlet var scrollableCollageView: ScrollableCollageView!
     var index: Int = 0
     
     @IBAction func click(_ sender: Any) {
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
         let attachment = Attachment(name: String(index), width: (Double)(image.size.width), height: (Double)(image.size.height))
         
         collageView.addAttachment(attachment)
+        scrollableCollageView.addAttachment(attachment)
         
         index = index + 1
     }

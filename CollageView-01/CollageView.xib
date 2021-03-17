@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CollageView" customModule="CollageView_01" customModuleProvider="target">
             <connections>
+                <outlet property="stackViewAndSafeAreaBottomConstraint" destination="Tms-q6-J4u" id="7c1-IT-5zI"/>
                 <outlet property="verticalStackView" destination="pFh-Up-3N6" id="eqn-FZ-EAb"/>
             </connections>
         </placeholder>
@@ -18,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="pFh-Up-3N6">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="pFh-Up-3N6">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                 </stackView>
@@ -29,6 +30,7 @@
                 <constraint firstItem="pFh-Up-3N6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="148-ya-JAH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="pFh-Up-3N6" secondAttribute="trailing" id="5UJ-EL-Mc2"/>
                 <constraint firstItem="pFh-Up-3N6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="LQi-yE-oIn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="pFh-Up-3N6" secondAttribute="bottom" id="Tms-q6-J4u"/>
             </constraints>
             <point key="canvasLocation" x="141" y="126"/>
         </view>

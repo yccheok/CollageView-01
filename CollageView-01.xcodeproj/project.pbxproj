@@ -17,6 +17,8 @@
 		0D7051E025FEFDF000EBD537 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7051DF25FEFDF000EBD537 /* UIView+Extensions.swift */; };
 		0D7051E625FF015700EBD537 /* CollageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D7051E525FF015700EBD537 /* CollageView.xib */; };
 		0D7051EF25FF01B400EBD537 /* CollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7051EE25FF01B400EBD537 /* CollageView.swift */; };
+		0DBF13452601B941004DF38B /* ScrollableCollageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DBF13442601B941004DF38B /* ScrollableCollageView.xib */; };
+		0DBF13482601B954004DF38B /* ScrollableCollageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBF13472601B954004DF38B /* ScrollableCollageView.swift */; };
 		0DE248FE25FF3DC4009F724C /* UIImageViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE248FD25FF3DC4009F724C /* UIImageViewEx.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		0D7051DF25FEFDF000EBD537 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0D7051E525FF015700EBD537 /* CollageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollageView.xib; sourceTree = "<group>"; };
 		0D7051EE25FF01B400EBD537 /* CollageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageView.swift; sourceTree = "<group>"; };
+		0DBF13442601B941004DF38B /* ScrollableCollageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollableCollageView.xib; sourceTree = "<group>"; };
+		0DBF13472601B954004DF38B /* ScrollableCollageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableCollageView.swift; sourceTree = "<group>"; };
 		0DE248FD25FF3DC4009F724C /* UIImageViewEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +82,8 @@
 				0D7051E525FF015700EBD537 /* CollageView.xib */,
 				0D7051EE25FF01B400EBD537 /* CollageView.swift */,
 				0DE248FD25FF3DC4009F724C /* UIImageViewEx.swift */,
+				0DBF13442601B941004DF38B /* ScrollableCollageView.xib */,
+				0DBF13472601B954004DF38B /* ScrollableCollageView.swift */,
 			);
 			path = "CollageView-01";
 			sourceTree = "<group>";
@@ -149,6 +155,7 @@
 			files = (
 				0D7051D225FEF8D800EBD537 /* LaunchScreen.storyboard in Resources */,
 				0D7051CF25FEF8D800EBD537 /* Assets.xcassets in Resources */,
+				0DBF13452601B941004DF38B /* ScrollableCollageView.xib in Resources */,
 				0D7051E625FF015700EBD537 /* CollageView.xib in Resources */,
 				0D7051CD25FEF8D600EBD537 /* Main.storyboard in Resources */,
 			);
@@ -164,6 +171,7 @@
 				0D7051EF25FF01B400EBD537 /* CollageView.swift in Sources */,
 				0D7051DC25FEFC0700EBD537 /* Attachment.swift in Sources */,
 				0D7051CA25FEF8D600EBD537 /* ViewController.swift in Sources */,
+				0DBF13482601B954004DF38B /* ScrollableCollageView.swift in Sources */,
 				0DE248FE25FF3DC4009F724C /* UIImageViewEx.swift in Sources */,
 				0D7051E025FEFDF000EBD537 /* UIView+Extensions.swift in Sources */,
 				0D7051C625FEF8D600EBD537 /* AppDelegate.swift in Sources */,
