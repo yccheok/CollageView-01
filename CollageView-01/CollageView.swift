@@ -119,7 +119,6 @@ class CollageView: UIView {
             imageView.image = UIImage(named: attachment.name)!
             imageView.intrinsicSize = CGSize(width: newWidth, height: newHeight)
 
-            print("\(attachment.name) -> \(imageView.intrinsicSize)")
             horizontalStackView.addArrangedSubview(imageView)
         }
     }
