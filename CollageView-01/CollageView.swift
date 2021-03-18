@@ -15,18 +15,12 @@ class CollageView: UIView {
     
     let spacing = CGFloat(1)
     
+    var imageViews: [UIImageViewEx] = []
     var attachments: [Attachment] = []
     var attachmentSet = Set<Attachment>()
-    let countPerRow = 3;
-    var rows: [UIStackView] = []
     
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    var horizontalStackViews: [UIStackView] = []
+    let countPerRow = 3
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -37,6 +31,7 @@ class CollageView: UIView {
         let view = instanceFromNib()
         view.frame = self.bounds
         self.addSubview(view)
+        
         // Default is not embed in scroll view.
         embedInScrollView(false)
     }
@@ -45,26 +40,44 @@ class CollageView: UIView {
         stackViewAndSafeAreaBottomConstraint.isActive = embed
     }
     
+    func setAttachments(_ attachments: [Attachment]) {
+        self.attachmentSet.removeAll()
+        self.attachments.removeAll()
+        self.horizontalStackViews.removeAll()
+        self.imageViews.removeAll()
+        
+        self.verticalStackView.removeAllView()
+
+        for attachment in attachments {
+            _ = _addAttachment(attachment)
+        }
+        
+        // self.horizontalStackViews is ready. Let's perform scaling.
+        for row in 0..<horizontalStackViews.count {
+            scaleRow(row)
+        }
+    }
+    
     func addAttachment(_ attachment: Attachment) {
         let result = _addAttachment(attachment)
         if !result {
             return
         }
-        scaleRow(rows.count-1)
+        scaleRow(horizontalStackViews.count-1)
     }
 
     func _addAttachment(_ attachment: Attachment) -> Bool {
-        if !attachmentSet.insert(attachment).inserted {
+        if !self.attachmentSet.insert(attachment).inserted {
             return false
         }
         
-        attachments.append(attachment)
+        self.attachments.append(attachment)
         
-        let count = attachments.count
-        let row = (count-1) / countPerRow;
+        let count = self.attachments.count
+        let row = (count-1) / self.countPerRow;
         
         // Do we need to add new row?
-        if (rows.count <= row) {
+        if (self.horizontalStackViews.count <= row) {
             let horizontalStackView = UIStackView()
             
             horizontalStackView.axis = .horizontal
@@ -72,23 +85,23 @@ class CollageView: UIView {
             horizontalStackView.alignment = .top
             horizontalStackView.spacing = spacing
             
-            rows.append(horizontalStackView)
-            verticalStackView.addArrangedSubview(horizontalStackView)
+            self.horizontalStackViews.append(horizontalStackView)
+            self.verticalStackView.addArrangedSubview(horizontalStackView)
         }
         
         return true
     }
     
     private func scaleRow(_ row: Int) {
-        let startIndex = row*countPerRow
-        let endIndex = min(startIndex+countPerRow, attachments.count)-1
+        let startIndex = row*self.countPerRow
+        let endIndex = min(startIndex+self.countPerRow, self.attachments.count)-1
         
         var basedWidth: Double = 0
         var basedHeight: Double = Double.greatestFiniteMagnitude
         
         // Searching for based size.
         for index in startIndex...endIndex {
-            let attachment = attachments[index]
+            let attachment = self.attachments[index]
             if attachment.height < basedHeight {
                 basedWidth = attachment.width
                 basedHeight = attachment.height
@@ -100,13 +113,13 @@ class CollageView: UIView {
         
         // Building weights.
         for index in startIndex...endIndex {
-            let attachment = attachments[index]
+            let attachment = self.attachments[index]
             let weight = (attachment.width / basedWidth) * (basedHeight / attachment.height)
             weights.append(weight)
             totalWeight = totalWeight + weight
         }
         
-        let horizontalStackView = rows[row]
+        let horizontalStackView = horizontalStackViews[row]
         
         for index in (0..<horizontalStackView.subviews.count).reversed() {
             let subview = horizontalStackView.subviews[index]
@@ -115,19 +128,23 @@ class CollageView: UIView {
         }
         
         for index in startIndex...endIndex {
-            let attachment = attachments[index]
+            let attachment = self.attachments[index]
             let weight = weights[index-startIndex]
-            let newWidth = (weight/totalWeight) * (Double)(self.frame.width - spacing*CGFloat(endIndex-startIndex))
+            let newWidth = (weight/totalWeight) * (Double)(self.frame.width - self.spacing*CGFloat(endIndex-startIndex))
             let oldWidth = attachment.width
             let oldHeight = attachment.height
             let newHeight = newWidth / oldWidth * oldHeight
             
             let imageView = UIImageViewEx()
             imageView.contentMode = .scaleAspectFit
-            imageView.image = UIImage(named: attachment.name)!
             imageView.intrinsicSize = CGSize(width: newWidth, height: newHeight)
 
+            // TODO: Use async way to load image.
+            imageView.image = UIImage(named: attachment.name)!
+            
             horizontalStackView.addArrangedSubview(imageView)
+            
+            self.imageViews.append(imageView)
         }
     }
 }
