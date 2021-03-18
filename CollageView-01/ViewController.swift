@@ -13,7 +13,22 @@ class ViewController: UIViewController {
     @IBOutlet var scrollableCollageView: ScrollableCollageView!
     var index: Int = 0
     
-    @IBAction func click(_ sender: Any) {
+    @IBAction func set(_ sender: Any) {
+        var attachments: [Attachment] = []
+        
+        for i in (0...4).reversed() {
+            let image = UIImage(named: String(i))!
+            
+            let attachment = Attachment(name: String(i), width: (Double)(image.size.width), height: (Double)(image.size.height))
+            
+            attachments.append(attachment)
+        }
+        
+        collageView.setAttachments(attachments)
+        scrollableCollageView.setAttachments(attachments)
+    }
+    
+    @IBAction func add(_ sender: Any) {
         let image = UIImage(named: String(index))!
         
         let attachment = Attachment(name: String(index), width: (Double)(image.size.width), height: (Double)(image.size.height))

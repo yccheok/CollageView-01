@@ -26,4 +26,8 @@ class ScrollableCollageView: UIView {
     func addAttachment(_ attachment: Attachment) {
         collageView.addAttachment(attachment)
     }
+    
+    func setAttachments(_ attachments: [Attachment]) {
+        collageView.setAttachments(attachments)
+    }
 }

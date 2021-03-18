@@ -42,11 +42,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pia-pm-hFL">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="amE-VH-dSt">
-                            <connections>
-                                <action selector="click:" destination="BYZ-38-t0r" id="Dlh-kV-HN0"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Set" id="FJn-uR-aSs">
+                                <connections>
+                                    <action selector="set:" destination="BYZ-38-t0r" id="91h-Dg-DWp"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Add" id="amE-VH-dSt">
+                                <connections>
+                                    <action selector="add:" destination="BYZ-38-t0r" id="Dlh-kV-HN0"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="collageView" destination="98j-Mn-8kh" id="21C-jR-MFE"/>
