@@ -11,4 +11,8 @@ struct Attachment : Hashable {
     let name: String
     let width: Double
     let height: Double
+    
+    func isSameSize(_ attachment: Attachment) -> Bool {
+        return width == attachment.width && height == attachment.height
+    }
 }

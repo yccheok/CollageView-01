@@ -66,6 +66,20 @@ class CollageView: UIView {
         scaleRow(horizontalStackViews.count-1)
     }
 
+    func replace(_ index: Int, _ attachment: Attachment) {
+        let imageView = imageViews[index]
+        let oldAttachment = attachments[index]
+        attachments[index] = attachment
+
+        precondition(oldAttachment.isSameSize(attachment))
+
+        attachmentSet.remove(oldAttachment)
+        attachmentSet.insert(attachment)
+
+        // TODO: Use async way to load image.
+        imageView.image = UIImage(named: attachment.name)!
+    }
+    
     func _addAttachment(_ attachment: Attachment) -> Bool {
         if !self.attachmentSet.insert(attachment).inserted {
             return false
