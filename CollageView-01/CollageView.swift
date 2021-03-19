@@ -76,8 +76,7 @@ class CollageView: UIView {
         attachmentSet.remove(oldAttachment)
         attachmentSet.insert(attachment)
 
-        // TODO: Use async way to load image.
-        imageView.image = UIImage(named: attachment.getPath().path)!
+        imageView.load(attachment.getPath())
     }
     
     func _addAttachment(_ attachment: Attachment) -> Bool {
@@ -152,9 +151,8 @@ class CollageView: UIView {
             let imageView = UIImageViewEx()
             imageView.contentMode = .scaleAspectFit
             imageView.intrinsicSize = CGSize(width: newWidth, height: newHeight)
-
-            // TODO: Use async way to load image.
-            imageView.image = UIImage(named: attachment.getPath().path)!
+            
+            imageView.load(attachment.getPath())
             
             horizontalStackView.addArrangedSubview(imageView)
             
