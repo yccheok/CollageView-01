@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 class CollageView: UIView {
     
@@ -63,8 +64,7 @@ class CollageView: UIView {
         attachmentSet.remove(oldAttachment)
         attachmentSet.insert(attachment)
 
-        // TODO: Use async way to load image.
-        imageView.image = UIImage(named: attachment.getPath().path)!
+        imageView.load(attachment.getPath())
     }
     
     func addAttachment(_ attachment: Attachment) -> Bool {
@@ -93,8 +93,8 @@ class CollageView: UIView {
         let imageView = UIImageViewEx()
         imageView.contentMode = .scaleAspectFit
 
-        // TODO: Use async way to load image.
-        imageView.image = UIImage(named: attachment.getPath().path)!
+        imageView.load(attachment.getPath())
+        
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: CGFloat(attachment.height / attachment.width)).isActive = true
         
         self.horizontalStackViews[row].addArrangedSubview(imageView)

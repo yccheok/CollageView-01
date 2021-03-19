@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import UIKit
+import Nuke
+
+extension UIImageView {
+    func load(_ url: URL) {
+        self.image = UIImage(named: url.path)
+        //Nuke.loadImage(with: url, into: self)
+    }
+}

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D57B6892604A5D8000C9D39 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D57B6882604A5D8000C9D39 /* UIImageView+Extensions.swift */; };
 		0D7051C625FEF8D600EBD537 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7051C525FEF8D600EBD537 /* AppDelegate.swift */; };
 		0D7051C825FEF8D600EBD537 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7051C725FEF8D600EBD537 /* SceneDelegate.swift */; };
 		0D7051CA25FEF8D600EBD537 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7051C925FEF8D600EBD537 /* ViewController.swift */; };
@@ -26,9 +27,12 @@
 		0DE248FE25FF3DC4009F724C /* UIImageViewEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE248FD25FF3DC4009F724C /* UIImageViewEx.swift */; };
 		0DE7AF38260353CC006598D8 /* UserDataDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7AF37260353CC006598D8 /* UserDataDirectory.swift */; };
 		0DE7AF3B260354E4006598D8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE7AF3A260354E4006598D8 /* Utils.swift */; };
+		DBD063575F86A8D34A091CC7 /* Pods_CollageView_01.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D5B9A3AD00937768E0F1DE /* Pods_CollageView_01.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		025F022152AF828976996E62 /* Pods-CollageView-01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollageView-01.debug.xcconfig"; path = "Target Support Files/Pods-CollageView-01/Pods-CollageView-01.debug.xcconfig"; sourceTree = "<group>"; };
+		0D57B6882604A5D8000C9D39 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		0D7051C225FEF8D600EBD537 /* CollageView-01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CollageView-01.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D7051C525FEF8D600EBD537 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D7051C725FEF8D600EBD537 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +54,8 @@
 		0DE248FD25FF3DC4009F724C /* UIImageViewEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewEx.swift; sourceTree = "<group>"; };
 		0DE7AF37260353CC006598D8 /* UserDataDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataDirectory.swift; sourceTree = "<group>"; };
 		0DE7AF3A260354E4006598D8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		E570417B4E7EE82A70027C82 /* Pods-CollageView-01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollageView-01.release.xcconfig"; path = "Target Support Files/Pods-CollageView-01/Pods-CollageView-01.release.xcconfig"; sourceTree = "<group>"; };
+		E9D5B9A3AD00937768E0F1DE /* Pods_CollageView_01.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollageView_01.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBD063575F86A8D34A091CC7 /* Pods_CollageView_01.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +75,8 @@
 			children = (
 				0D7051C425FEF8D600EBD537 /* CollageView-01 */,
 				0D7051C325FEF8D600EBD537 /* Products */,
+				8C807DAB92915AB6CBF9C095 /* Pods */,
+				CD435977E395B50B89199049 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +118,7 @@
 				0D7051DF25FEFDF000EBD537 /* UIView+Extensions.swift */,
 				0DC542F12602E34100E392A5 /* UIStackView+Extensions.swift */,
 				0D8E9B772603B57F000CEA6F /* String+Extensions.swift */,
+				0D57B6882604A5D8000C9D39 /* UIImageView+Extensions.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -122,6 +132,23 @@
 			path = file;
 			sourceTree = "<group>";
 		};
+		8C807DAB92915AB6CBF9C095 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				025F022152AF828976996E62 /* Pods-CollageView-01.debug.xcconfig */,
+				E570417B4E7EE82A70027C82 /* Pods-CollageView-01.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CD435977E395B50B89199049 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9D5B9A3AD00937768E0F1DE /* Pods_CollageView_01.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D7051D625FEF8D800EBD537 /* Build configuration list for PBXNativeTarget "CollageView-01" */;
 			buildPhases = (
+				2A33568183C7CAAB7BB883D8 /* [CP] Check Pods Manifest.lock */,
 				0D7051BE25FEF8D600EBD537 /* Sources */,
 				0D7051BF25FEF8D600EBD537 /* Frameworks */,
 				0D7051C025FEF8D600EBD537 /* Resources */,
+				AEBDDF97D2BBCEEA89314BE7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,11 +218,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A33568183C7CAAB7BB883D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CollageView-01-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AEBDDF97D2BBCEEA89314BE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CollageView-01/Pods-CollageView-01-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CollageView-01/Pods-CollageView-01-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CollageView-01/Pods-CollageView-01-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0D7051BE25FEF8D600EBD537 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D57B6892604A5D8000C9D39 /* UIImageView+Extensions.swift in Sources */,
 				0DC542F22602E34100E392A5 /* UIStackView+Extensions.swift in Sources */,
 				0D7051EF25FF01B400EBD537 /* CollageView.swift in Sources */,
 				0D7051DC25FEFC0700EBD537 /* Attachment.swift in Sources */,
@@ -351,6 +423,7 @@
 		};
 		0D7051D725FEF8D800EBD537 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 025F022152AF828976996E62 /* Pods-CollageView-01.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -370,6 +443,7 @@
 		};
 		0D7051D825FEF8D800EBD537 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E570417B4E7EE82A70027C82 /* Pods-CollageView-01.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
