@@ -49,21 +49,8 @@ class CollageView: UIView {
         self.verticalStackView.removeAllView()
 
         for attachment in attachments {
-            _ = _addAttachment(attachment)
+            _ = addAttachment(attachment)
         }
-        
-        // self.horizontalStackViews is ready. Let's perform scaling.
-        for row in 0..<horizontalStackViews.count {
-            scaleRow(row)
-        }
-    }
-    
-    func addAttachment(_ attachment: Attachment) {
-        let result = _addAttachment(attachment)
-        if !result {
-            return
-        }
-        scaleRow(horizontalStackViews.count-1)
     }
 
     func replace(_ index: Int, _ attachment: Attachment) {
@@ -80,7 +67,7 @@ class CollageView: UIView {
         imageView.image = UIImage(named: attachment.getPath().path)!
     }
     
-    func _addAttachment(_ attachment: Attachment) -> Bool {
+    func addAttachment(_ attachment: Attachment) -> Bool {
         if !self.attachmentSet.insert(attachment).inserted {
             return false
         }
@@ -95,70 +82,25 @@ class CollageView: UIView {
             let horizontalStackView = UIStackView()
             
             horizontalStackView.axis = .horizontal
-            horizontalStackView.distribution = .fillProportionally
-            horizontalStackView.alignment = .top
+            horizontalStackView.distribution = .fill
+            horizontalStackView.alignment = .fill
             horizontalStackView.spacing = spacing
             
             self.horizontalStackViews.append(horizontalStackView)
             self.verticalStackView.addArrangedSubview(horizontalStackView)
         }
         
-        return true
-    }
-    
-    private func scaleRow(_ row: Int) {
-        let startIndex = row*self.countPerRow
-        let endIndex = min(startIndex+self.countPerRow, self.attachments.count)-1
-        
-        var basedWidth: Double = 0
-        var basedHeight: Double = Double.greatestFiniteMagnitude
-        
-        // Searching for based size.
-        for index in startIndex...endIndex {
-            let attachment = self.attachments[index]
-            if attachment.height < basedHeight {
-                basedWidth = attachment.width
-                basedHeight = attachment.height
-            }
-        }
-        
-        var weights : [Double] = []
-        var totalWeight: Double = 0.0
-        
-        // Building weights.
-        for index in startIndex...endIndex {
-            let attachment = self.attachments[index]
-            let weight = (attachment.width / basedWidth) * (basedHeight / attachment.height)
-            weights.append(weight)
-            totalWeight = totalWeight + weight
-        }
-        
-        let horizontalStackView = horizontalStackViews[row]
-        
-        for index in (0..<horizontalStackView.subviews.count).reversed() {
-            let subview = horizontalStackView.subviews[index]
-            horizontalStackView.removeArrangedSubview(subview)
-            subview.removeFromSuperview()
-        }
-        
-        for index in startIndex...endIndex {
-            let attachment = self.attachments[index]
-            let weight = weights[index-startIndex]
-            let newWidth = (weight/totalWeight) * (Double)(self.frame.width - self.spacing*CGFloat(endIndex-startIndex))
-            let oldWidth = attachment.width
-            let oldHeight = attachment.height
-            let newHeight = newWidth / oldWidth * oldHeight
-            
-            let imageView = UIImageViewEx()
-            imageView.contentMode = .scaleAspectFit
-            imageView.intrinsicSize = CGSize(width: newWidth, height: newHeight)
+        let imageView = UIImageViewEx()
+        imageView.contentMode = .scaleAspectFit
 
-            // TODO: Use async way to load image.
-            imageView.image = UIImage(named: attachment.getPath().path)!
-            
-            horizontalStackView.addArrangedSubview(imageView)
-            
-            self.imageViews.append(imageView)
-        }
+        // TODO: Use async way to load image.
+        imageView.image = UIImage(named: attachment.getPath().path)!
+        imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: CGFloat(attachment.height / attachment.width)).isActive = true
+        
+        self.horizontalStackViews[row].addArrangedSubview(imageView)
+        
+        self.imageViews.append(imageView)
+        
+        return true
     }
 }
