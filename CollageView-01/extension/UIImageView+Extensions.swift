@@ -11,7 +11,9 @@ import Nuke
 
 extension UIImageView {
     func load(_ url: URL) {
-        self.image = UIImage(named: url.path)
-        //Nuke.loadImage(with: url, into: self)
+        let options = ImageLoadingOptions(
+            transition: .fadeIn(duration: 0.2)
+        )
+        Nuke.loadImage(with: url, options: options, into: self)
     }
 }
