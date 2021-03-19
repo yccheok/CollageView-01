@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         var attachments: [Attachment] = []
         
         for i in (0...4).reversed() {
-            let image = UIImage(named: Utils.getAttachmentPath(Directory.Default, names[index]).path)!
+            let image = UIImage(named: Utils.getAttachmentPath(Directory.Default, names[i]).path)!
             
             let attachment = Attachment(
                 directory: Directory.Default,
